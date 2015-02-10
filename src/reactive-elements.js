@@ -111,7 +111,7 @@ React = typeof React === 'object' ? React : require('react');
 
     var parseAttributeValue = function (value) {
         // Testing for json string first
-        var matches = value.match(/^\{(\{(?:.|[\r\n])*})}$/), result;
+        var matches = value.match(/^\{((\{|\[)(?:.|[\r\n])*}\2)}$/), result;
 
         if(matches) {
             try {
