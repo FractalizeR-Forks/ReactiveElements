@@ -85,15 +85,11 @@ React = typeof React === 'object' ? React : require('react');
     };
 
     var attributeNameToPropertyName = function(attributeName) {
-        var result = attributeName.
+        return attributeName.
             replace(/^(?:(?:x-)|(?:data-))/, ''). // Removing prefixes
             replace(/\W+(.)/g, function(x, chr) { // Camelising
                 return chr.toUpperCase();
             });
-
-        window.console && window.console.log && console.log("Attr: " + attributeName + " -> " + result);
-
-        return result;
     };
 
     var getNextDelimiterIndex = function(string) {
