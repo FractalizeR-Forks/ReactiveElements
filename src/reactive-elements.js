@@ -85,7 +85,7 @@ React = typeof React === 'object' ? React : require('react');
     };
 
     var attributeNameToPropertyName = function(attributeName) {
-        var result = attributeName.replace(/^((?:x-)|(?:data-))/, ''), //Removing prefixes
+        var result = attributeName.replace(/^(?:(?:x-)|(?:data-))/, ''), //Removing prefixes
             delimiterIndex;
 
         while ((delimiterIndex = getNextDelimiterIndex(result)) !== -1) {
