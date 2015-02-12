@@ -85,12 +85,11 @@ React = typeof React === 'object' ? React : require('react');
     };
 
     var attributeNameToPropertyName = function(attributeName) {
-        var result = attributeName.replace(/^(?:(?:x-)|(?:data-))/, ''), //Removing prefixes
-            delimiterIndex;
-
-        while ((delimiterIndex = getNextDelimiterIndex(result)) !== -1) {
-            result = result.slice(0, delimiterIndex) + result.charAt(delimiterIndex + 1).toUpperCase() + result.slice(delimiterIndex + 2, result.length);
-        }
+        var result = attributeName.
+            replace(/^(?:(?:x-)|(?:data-))/, ''). // Removing prefixes
+            replace(/\W+(.)/g, function(x, chr) { // Camelising
+                return chr.toUpperCase();
+            });
 
         window.console && window.console.log && console.log("Attr: " + attributeName + " -> " + result);
 
